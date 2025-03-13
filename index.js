@@ -10,6 +10,30 @@ $(document).ready(function () {
     const whatWeknowtoggleBar = $("#what-we-know-toggle-bar");
     const toggleOptions = whatWeknowtoggleBar.find("span");
     const whatWeknowDataContainer = $(".data-container > div");
+    const menuBtn = $(".navbar-toggler ")
+
+    //MENU BUTTON CHANGE 
+    menuBtn.on("click", () => {
+        menuBtn.toggleClass("menu-active");
+    });
+    // ANIMATION-ON-FIRST-RENDER
+    $(document).ready(function () {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                $(entry.target).addClass("stats-animation");
+            } 
+          });
+        });
+      
+        $(".stats-container").each(function () {
+          observer.observe(this); 
+        });
+        $(".cards-container").each(function () {
+            observer.observe(this); 
+          });
+      });
+      
 
 
     toggleOptions.eq(0).addClass("toggle-bar-active");
@@ -43,6 +67,28 @@ $(document).ready(function () {
         });
     });
 
+    // $(window).on("scroll", function () {
+    //     let url = window.location.hash.substring(1); 
+
+    //         $(window).scroll(function () {
+    //             if ($(this).scrollTop() > 0) {
+    //                 console.log("yo")
+    //                 if (!(url === "schedule-demo-page")){
+    //                     console.log("yo")
+    //                     $("#carouselExample").removeClass("active"); // Keep "display" if needed
+    //                 }
+                   
+    //             } else {
+    //                 if (!(url === "schedule-demo-page")){
+    //                     $("#carouselExample").addClass("active");
+    //                 }
+                   
+    //             }
+    //         });
+        
+    // });
+
+    // setInterval(() => $("#carouselExample").carousel("next"), 5000);
 
 
     toggleOptions.click(function () {
@@ -64,53 +110,74 @@ $(document).ready(function () {
         event.preventDefault(); // Prevent page reload
 
         const formData = new FormData(this);
-
-        console.log("First Name:", formData.get("FirstName"));
-        console.log("Last Name:", formData.get("LastName"));
-        console.log("Email:", formData.get("EmailAddress"));
-        console.log("Phone Number:", formData.get("PhoneNumber"));
-        console.log("Account Type:", formData.get("AccountType"));
-        console.log("Company Name:", formData.get("CompanyName"));
-        console.log("Job Title:", formData.get("JobTitle"));
-        alert(`Thank you ${formData.get("FirstName")} ${formData.get("LastName")} for submitting the form , Our team will contact you soon!!!`)
+        if (
+            formData.get("FirstName") === "" || 
+            formData.get("LastName") === "" || 
+            formData.get("EmailAddress") === "" || 
+            formData.get("PhoneNumber") === "" || 
+            formData.get("CompanyName") === "" || 
+            formData.get("JobTitle") === ""
+        ) {
+            alert("Please fill all data")
+        }else{
+            console.log("First Name:", formData.get("FirstName"));
+            console.log("Last Name:", formData.get("LastName"));
+            console.log("Email:", formData.get("EmailAddress"));
+            console.log("Phone Number:", formData.get("PhoneNumber"));
+            console.log("Account Type:", formData.get("AccountType"));
+            console.log("Company Name:", formData.get("CompanyName"));
+            console.log("Job Title:", formData.get("JobTitle"));
+            alert(`Thank you ${formData.get("FirstName")} ${formData.get("LastName")} for submitting the form , Our team will contact you soon!!!`)
+        }
     });
 
     //ROUTER FUNCTION
-    $(".demo-button").on("click",()=>{
+    $(".demo-button").on("click",function(){
         $("#carouselExample").removeClass("active");
     })
     function loadPage() {
-        let hash = window.location.hash.substring(1); 
-        
-        hashUrl.forEach(id => {
-            $("#" + id).removeClass("active");
-            
-        });
-    
-     
+        let hash = window.location.hash.substring(1);
+
+        // Remove "active" class from all hash-based pages
+        hashUrl.forEach(id => $("#" + id).removeClass("active"));
+
         if (hash && hashUrl.includes(hash)) {
             $("#" + hash).addClass("active");
-            if (hash !== "home-page") {
+
+            if (hash === "schedule-demo-page") {
+                console.log("Hiding carousel on schedule-demo-page");
                 $("#carouselExample").removeClass("active");
+            } else if (hash === "") {
+                console.log("Showing carousel on home-page");
+                $("#carouselExample").addClass("active");
             }
         } else {
+            console.log("Defaulting to home-page");
             $("#home-page").addClass("active");
-            $("#carouselExample").addClass("active"); 
-            $(window).on("scroll", function () {
-                if(hash==="home-page"){
-                    $("#carouselExample").css("display", $(this).scrollTop() > 0 ? "none" : "block");
-                }
-               
-            });
-        
-        
-            setInterval(() => $("#carouselExample").carousel("next"), 5000);
-        
+            $("#carouselExample").addClass("active");
         }
     }
-    
-    $(window).on("hashchange", loadPage); 
+
+    // Scroll event only on home-page
+    $(window).on("scroll", function () {
+        let hash = window.location.hash.substring(1); // Get updated hash value
+
+        if ( hash === "") { 
+            if ($(window).scrollTop() > 0) {
+                console.log("Hiding carousel on scroll down");
+                $("#carouselExample").removeClass("active");
+            } else {
+                console.log("Showing carousel on scroll up");
+                $("#carouselExample").addClass("active");
+            }
+           
+        }
+       
+    });
+    setInterval(() => $("#carouselExample").carousel("next"), 5000);
+    $(window).on("hashchange", loadPage);
     loadPage(); // Run on initial load
+    
     
      
 });

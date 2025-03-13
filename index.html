@@ -7,6 +7,7 @@
     <title>Flix</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="https://flix-clone.b-cdn.net/Images/favicon.png">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> -->
 
 </head>
@@ -43,7 +44,7 @@
 
                 <div class="navbar navbar-expand-lg logo-link">
                     <!-- Logo -->
-                    <div>
+                    <div onclick="window.location.href='/'">
                         <img class="logo-img" src="Images\flix-logo.svg" loading="lazy" />
                     </div>
 
@@ -134,8 +135,8 @@
 
                 <!-- Demo-Button -->
                 <div  class="demo-button">
-                    <button>
-                       <a href="#schedule-demo-page">Schedule a demo</a> 
+                    <button onclick="window.location.href='/#schedule-demo-page'">
+                       Schedule a demo 
                     </button>
                 </div>
 
@@ -223,8 +224,8 @@
                     <div class="intro-text-button-container">
                         <h3>View our products ></h3>
                         <div  class="demo-button">
-                            <button>
-                               <a href="#schedule-demo-page">Schedule a demo</a> 
+                            <button onclick="window.location.href='/#schedule-demo-page'">
+                               Schedule a demo 
                             </button>
                         </div>
                     </div>
@@ -385,7 +386,7 @@
 
                         <div class="what-we-do-data-container">
                             <div class="img-what-we-do-2">
-                                <img loading="lazy" src="Images\flix-starting-img.webp" />
+                                <img loading="lazy" src="Images\result-img.webp" />
                             </div>
 
                             <!-- text-section 3-->
@@ -419,8 +420,8 @@
                     <div class="what-we-do-text-button-container">
                         <h3>View our products ></h3>
                         <div  class="demo-button">
-                            <button>
-                               <a href="#schedule-demo-page">Schedule a demo</a> 
+                            <button onclick="window.location.href='/#schedule-demo-page'">
+                               Schedule a demo 
                             </button>
                         </div>
                     </div>
@@ -495,8 +496,8 @@
                 <div class="what-we-do-text-button-container">
                     <h3>View our products ></h3>
                     <div  class="demo-button">
-                        <button>
-                           <a  href="#schedule-demo-page">Schedule a demo</a> 
+                        <button onclick="window.location.href='/#schedule-demo-page'">
+                           Schedule a demo 
                         </button>
                     </div>
                 </div>
@@ -559,8 +560,8 @@
                 <div class="what-we-do-text-button-container">
                     <h3>View our products ></h3>
                     <div  class="demo-button">
-                        <button>
-                           <a  href="#schedule-demo-page">Schedule a demo</a> 
+                        <button onclick="window.location.href='/#schedule-demo-page'">
+                           Schedule a demo 
                         </button>
                     </div>
                 </div>
@@ -611,16 +612,16 @@
                 <!-- form -->
                 <form id="demoUploadForm" class="demo-form" action="">
                     <label for="FirstName">First name
-                        <input type="text" id="FirstName" name="FirstName" >
+                        <input required type="text" id="FirstName" name="FirstName" >
                     </label>
                     <label for="LastName">Last name
-                        <input type="text" id="LastName" name="LastName" >
+                        <input required type="text" id="LastName" name="LastName" >
                     </label>
                     <label for="EmailAddress">EmailAddress
-                        <input type="email" id="EmailAddress" name="EmailAddress" >
+                        <input required type="email" id="EmailAddress" name="EmailAddress" >
                     </label>
                     <label for="PhoneNumber">Phone Number
-                        <input maxlength="10" type="number" id="PhoneNumber" name="PhoneNumber" >
+                        <input required maxlength="10" type="number" id="PhoneNumber" name="PhoneNumber" >
                     </label>
                     <label for="AccountType">Are you a brand or retailer?
                         <select id="AccountType" name="AccountType" >
@@ -629,10 +630,10 @@
                         </select>
                     </label>
                     <label for="CompanyName">Company Name
-                        <input  type="text" id="CompanyName" name="CompanyName" >
+                        <input required type="text" id="CompanyName" name="CompanyName" >
                     </label>
                     <label for="JobTitle">Job Title
-                        <input  type="text" id="JobTitle" name="JobTitle" >
+                        <input required type="text" id="JobTitle" name="JobTitle" >
                     </label>
 
                     <button type="submit" class="demo-form-button">

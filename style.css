@@ -1,6 +1,8 @@
 @font-face {
     font-family: 'Custom';
-    src: url('Roboto\Roboto-VariableFont_wdth,wght.ttf') ;
+    /* src: url('Roboto\Roboto-VariableFont_wdth,wght.ttf') ; */
+    
+    src: url('https://flix-clone.b-cdn.net/Roboto/FS%20Jack-Medium.otf') format('truetype');
 
 }
 *,*::before,*::after{
@@ -135,21 +137,26 @@ a {
     display: flex;
     flex-direction: column;
     height: 100%;
-   
+    margin-right: 8px;
+    margin-bottom: 8px;
     justify-content: center;
+}
+.menu-active{
+    background-color: #3bd669 !important;
+
 }
 .navbar-toggler-icon span{
   display: block;
   height: 5px;
   width: 40px;
+
   background-color: black;
   border-radius: 2px;
-  margin-top: 10px;
+  margin-top: 6px;
 
 }
 .demo-button{
     display: flex;
-    flex-grow: 1;
     justify-content: end;
     width: fit-content;
 
@@ -158,7 +165,7 @@ a {
 .demo-button button{
     all: unset;
     background-color: #41e886;
-    font-size: 20px;
+    font-size: 18px;
     color: black;
     transition: all 100ms ease-in;
     border-radius: 20px;
@@ -177,8 +184,8 @@ a {
 .arrow-down{
     transform: rotate(90deg);
     display: block;
-    font-size: 25px;
-    font-weight: 600;
+    font-size: 19px;
+    font-weight: 900;
     text-align: center;
 }
 .Drop-down {
@@ -227,9 +234,6 @@ a {
     gap: 100px;
 }
 
-.active{
-    display: flex;
-}
 .schedule-demo-parent{
     display: none ;
     padding-top: 250px;
@@ -338,7 +342,8 @@ a {
     width: 85%;
     padding-bottom: 50px;
     justify-content: end;
-    height: calc(100vh - 100px) 
+    /* height: calc(100vh - 100px)  */
+    padding-top: 50px;
 }
 .footer-links-logo-div{
     display: flex;
@@ -431,7 +436,7 @@ a {
  .intro-parent-container{
      display: flex;
      width: 80%;
-     gap: 100px;
+     gap: 64px;
      margin-top: 300px;
      height: fit-content;
      align-items: center;
@@ -453,13 +458,15 @@ a {
  }
  
  .intro-text-container h3{
-     font-size: 20px;
+     font-size: 18px;
+     margin: 0;
     
  }
  
  .intro-text-button-container{
      display: flex;
-     width: 65%;
+     width: fit-content;
+     gap: 30px;
      align-items: center;
  }
  .video-img{
@@ -469,7 +476,7 @@ a {
 .img-video{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     cursor: pointer;
 }
 
@@ -507,7 +514,18 @@ a {
     display: flex;
     width: 80%;
     justify-content: space-between;
+    /* padding-top: 200px; */
+    position: relative;
+    top: 200px;
+    opacity: 0;
+    transition: all 900ms ease-in;
   
+}
+.stats-animation{
+    /* padding-top: 0; */
+    top: 0 !important;
+    opacity: 1 !important;
+    /* position: static; */
 }
 .stats-container div{
     display: flex;
@@ -551,8 +569,8 @@ a {
     
 }
 .img-what-we-do-2{
-    width: 100%;
-    height: 400px;
+    width: 85%;
+    height: 330px;
     margin-bottom:50px ;
 }
 .what-we-do-container h2{
@@ -573,7 +591,7 @@ a {
 }
 
 .what-we-know-toggle-bar {
-   
+    display: flex;
     cursor :pointer;
     height: auto;
     
@@ -616,13 +634,15 @@ width: 100%;
 }
 .what-we-do-text-button-container{
     display: flex;
-    width: 32%;
+    width: fit-content;
+    gap: 30px;
     align-items: center;
 }
 .what-we-do-text-button-container h3{
     color:#41E886;
     font-size: 18px;
     font-weight: 800;
+    margin: 0;
 }
 
 .what-we-do-cards-parent{
@@ -653,6 +673,10 @@ width: 100%;
     display: flex;
    justify-content: space-between;
     width: 100%;
+    position: relative;
+    top: 200px;
+    opacity: 0;
+    transition: top 1000ms ease-in, opacity 1200ms ease-in;
 }
 .cards{
     display: flex;
@@ -693,7 +717,22 @@ width: 100%;
 }
 
 /* Responsiveness */
-@media  only screen and (max-width: 1023px) {
+@media  only screen and (min-width: 1992px) {
+    /* .intro-text-button-container {
+        width: 35%;
+    }  */
+}
+@media only screen and (max-width: 1595px) and (min-width:  1360px) {
+    /* .intro-text-button-container {
+        width: 65%;
+    } */
+}
+/* @media  only screen and (max-width: 1399px){
+    .what-we-do-text-button-container {
+        width: 50%;
+    }
+} */
+@media  only screen and (max-width: 991px) {
     .nav-item-1{
         display: none;
     }
@@ -758,7 +797,7 @@ width: 100%;
     .logo-link ul{
         align-items: flex-start;
         padding: 20px;
-        background-color: #1d1d1d !important;
+        background-color: #1d1d1d;
     }
     .intro-parent-container{
         width: 95%;
@@ -783,9 +822,7 @@ width: 100%;
     .what-we-do-container {
         width: 97%;
     }
-    .what-we-do-text-button-container {
-        width: 45%;
-    }
+
     .what-we-do-cards-parent{
         width:95%
     }
@@ -881,9 +918,9 @@ width: 100%;
 }
 @media only screen and (max-width: 1023px) and (min-width: 769px) {
 
-    .intro-text-button-container {
-        width: 60%;
-    }
+    /* .intro-text-button-container {
+        width: 70%;
+    } */
 
 }
 @media only screen and (max-width: 767px) and (min-width: 424px) {
@@ -910,6 +947,10 @@ width: 100%;
       
         top: 850px;
     }
+    .logo-link ul{
+
+        background-color: black;
+    }
 }
 @media only screen and (width: 768px){
     /* schedule-demo-page */
@@ -923,15 +964,12 @@ width: 100%;
 }
 @media only screen and (max-width: 768px) and (min-width: 424px) {
 
-    .intro-text-button-container {
+    /* .intro-text-button-container {
+        width: 372px;
+    } */
+    /* .what-we-do-text-button-container {
         width: 350px;
-    }
-    .what-we-do-text-button-container {
-        width: 350px;
-    }
-    .what-we-do-text-button-container {
-        width: 350px;
-    }
+    } */
     .cards-container{
         flex-direction: column;
         gap:30px;
@@ -961,17 +999,17 @@ width: 100%;
     .intro-parent-container {
         gap: 0px;
     }
-    .intro-text-button-container {
-        width: 95%;
+    /* .intro-text-button-container {
+        width: 100%;
 
-    }
-    .what-we-do-text-button-container {
+    } */
+    /* .what-we-do-text-button-container {
         width: 42%;
-    }
+    } */
     
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width:720px){
     .intro-parent-container{
         flex-direction: column;
         align-items: center;
@@ -1056,16 +1094,16 @@ width: 100%;
         padding-top: 8px;
         padding-bottom: 8px
     }
-    .intro-text-button-container {
+    /* .intro-text-button-container {
         width: 100%;
-    }
-    .what-we-do-text-button-container {
+    } */
+    /* .what-we-do-text-button-container {
         width: 100%;
     }
     .what-we-do-text-button-container {
         width: 100%;
         flex-direction: column;
-    }
+    } */
 
     .navBar > div:nth-of-type(2) button {
        
@@ -1098,22 +1136,30 @@ width: 100%;
     .demo-form-button{
         margin: auto;
     }
+    .what-we-do-text-button-container {
+        gap: 18px;
+
+    }
+
+    .img-what-we-do-2 {
+        height: 128px;
+    }
 
 }
-/* @media only screen and (max-width: 425px) {
-    .intro-text-button-container {
-        width: 100%;
-    }
-    .what-we-do-text-button-container {
-        width: 100%;
-    }
-    .what-we-do-text-button-container {
-        width: 100%;
-    }
+@media only screen and (max-width: 424px){
+    .logo-link ul{
 
+        background-color: black;
+    }
+}
+@media only screen and (max-width: 400px){
+    .demo-button button {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+}
 
-} */
-@media only screen and (max-width: 360px){
+@media only screen and (max-width: 375px){
     .intro-text-button-container{
         flex-direction :column;
         gap: 10px;
@@ -1121,10 +1167,7 @@ width: 100%;
     .what-we-do-text-button-container{
         flex-direction :column;
         gap: 10px;
-    }
-    .what-we-do-text-button-container{
-        flex-direction :column;
-        gap: 10px;
+        margin: 0;
     }
     .footer-copyright-container{
         flex-direction: column;
